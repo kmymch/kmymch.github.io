@@ -66,6 +66,13 @@ collections:
     feature_text: |
       Welcome to the blog
     feature_image: "https://picsum.photos/2560/600?image=866"
+  news:
+    title: News # Needed for Siteleaf
+    output: true
+    description: "Important announcements and updates" # The news list page content
+    feature_text: |
+      Latest News
+    feature_image: "https://picsum.photos/2560/600?image=873"
 
 # 6. Jekyll collections settings
 defaults:
@@ -80,6 +87,12 @@ defaults:
       type: "posts"
     values:
       layout: post # Set the default layout for posts
+  -
+    scope:
+      path: ""
+      type: "news"
+    values:
+      layout: post # Set the default layout for news
   -
     scope:
       path: ""
@@ -120,6 +133,8 @@ favicons: # Favicons are also used in the manifest file. Syntax is 'size: path'
 navigation_header:
 - title: Home
   url: /
+- title: News
+  url: /news/
 - title: Publications
   url: /publications/
 - title: Blog
@@ -127,20 +142,20 @@ navigation_header:
 - title: Search
   url: /search/
 - title: CV
-  url: /cv/
+  url: /assets/cv/YukiTanaka_CV.pdf
 
 navigation_footer:
-- title: © 2025 Yuki Tanaka
+- title: Created by Yuki
   url: /
 
 social_links: # Appears in sidebar. Set the urls then uncomment and comment out as desired
   GitHub: https://github.com/kmymch
   RSS: /feed.xml
 
-sharing_links: # Appear at the bottom of single blog posts, add as desired. The value can be 'true' or the desired button colour
-  Twitter: "#0d94e7"
-  facebook: "#3B5998"
-  Email: true
+# sharing_links: # Appear at the bottom of single blog posts, add as desired. The value can be 'true' or the desired button colour
+#   Twitter: "#0d94e7"
+#   facebook: "#3B5998"
+#   Email: true
 
 # Load custom fonts from fonts.google.com etc
 #
