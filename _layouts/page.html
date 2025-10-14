@@ -2,36 +2,20 @@
 layout: default
 ---
 
-<section class="bg-gray200 pt-5 pb-5">
-    
-    <div class="container">
-        
-    	<div class="row justify-content-center">
-            
-    		<div class="col-md-8">
-                
-    			<article class="card">
+{% include site-header.html %}
 
-                     {% if page.image %} 
-                        <img class="card-img-top mb-2" src="{% if page.image contains "://" %}{{ page.image }}{% else %}{{ page.image | absolute_url }}{% endif %}" alt="{{ page.title }}"> 
-                    {% endif %}
+<main class="main  container">
 
-                    <div class="card-body">
+  <article class="article  article--page  content  typeset">
 
-                        <h1 class="display-4">
-                            {{page.title}} 
-                        </h1>
+    <h1>{{ page.title }}</h1>
 
-                        {{ content }}
+    {{ content }}
 
-                    </div>  
-                    
-    			</article>
-                
-    		</div>
-            
-    	</div>
-        
-    </div>
-    
-</section>
+  </article>
+
+  {% if page.aside == true %}{% include site-aside.html %}{% endif %}
+
+</main>
+
+{% include site-footer.html %}
