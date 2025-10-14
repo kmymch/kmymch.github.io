@@ -16,16 +16,13 @@
 <loc>http://localhost:4000/categories/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/cv/</loc>
-</url>
-<url>
 <loc>http://localhost:4000/elements/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/news/</loc>
+<loc>http://localhost:4000/blog/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/blog/</loc>
+<loc>http://localhost:4000/news/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/</loc>
@@ -37,7 +34,7 @@
 <loc>http://localhost:4000/search/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/assets/cv/YukiTanaka_cv.pdf</loc>
+<loc>http://localhost:4000/assets/cv/YukiTanaka_CV.pdf</loc>
 <lastmod>2025-10-14T20:50:51+09:00</lastmod>
 </url>
 </urlset>
