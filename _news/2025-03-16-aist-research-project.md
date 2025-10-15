@@ -31,5 +31,3 @@ For more details about this research initiative, please visit the official proje
 
 
 ---
-
-*March 2025*

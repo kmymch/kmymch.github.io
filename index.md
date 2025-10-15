@@ -2,7 +2,7 @@
 title: Yuki Tanaka
 feature_text: |
   ## Yuki Tanaka
-  PhD Student at Keio University
+  PhD Student
 feature_image: "https://picsum.photos/1300/400?image=989"
 excerpt: "PhD student researching robotics, AI, and machine learning at Keio University"
 ---

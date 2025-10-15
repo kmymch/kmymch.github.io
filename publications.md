@@ -34,7 +34,7 @@ excerpt: "List of academic publications and research papers"
 ## Conference Papers (Domestic)
 
 1. 電気学会学生発表会2022，"パワーアシストロボットのための機械学習を用いた動作生成"  
-   **🏆 優秀発表賞受賞**
+   [**🏆 優秀発表賞受賞**](https://www.iee.jp/tokyo/award/student/n12/)
 
 1. 自動制御連合講演会2022，"動作再現ロボットのためのあいまいなスケール指令の定量化手法の開発"
 
