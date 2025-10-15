@@ -18,6 +18,10 @@ I am pleased to announce that I have successfully completed my summer internship
 - **Location**: Lawrence Livermore National Laboratory, California, USA
 - **Program**: Data Science Summer Institute (DSSI)
 
+
+![Group Photo](/assets/images/news/2025-09-12.png)
+
+
 <div class="link-card" style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin: 20px 0; background: #f9f9f9;">
   <div style="margin-bottom: 8px;">
     <strong style="font-size: 1.1em; color: #333;">Lawrence Livermore National Laboratory</strong>
@@ -34,5 +38,3 @@ I am pleased to announce that I have successfully completed my summer internship
 </div>
 
 ---
-
-*September 12, 2025*
