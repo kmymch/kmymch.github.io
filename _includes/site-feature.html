@@ -7,9 +7,14 @@
 {% endif %}
 
 {% if feature_text or feature_image %}
-  <div class="feature"{% if feature_image %} style="background-image: url({{ feature_image }})"{% endif %}>
+  {% assign bg = feature_image | relative_url %}
+  <div class="feature"{% if feature_image %} style="background-image: url('{{ bg }}')" aria-hidden="true"{% endif %}>
     <div class="container  typeset">
       {{ feature_text | markdownify }}
     </div>
+    {% if feature_image %}
+      <!-- Decorative image for non-CSS clients / previews -->
+      <img src="{{ bg }}" alt="{{ page.title | default: site.title }}" style="display:none;width:1px;height:1px;overflow:hidden;" />
+    {% endif %}
   </div>
 {% endif %}
