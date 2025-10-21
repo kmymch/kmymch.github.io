@@ -50,11 +50,30 @@ body {
   background: $featureBackgroundColour;
   background-size: cover;
   background-position: center;
+  position: relative;
+  color: $backgroundColour;
+  /* overlay for contrast */
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35));
+    pointer-events: none;
+  }
   .container {
     min-height: 35vh;
     max-width: 60%;
     @include flex-direction(column);
     @include justify-content(center);
+  }
+
+  /* ensure text appears above overlay */
+  .container, .typeset {
+    position: relative;
+    z-index: 1;
   }
 }
 
@@ -239,6 +258,24 @@ img {
   &--center {
     text-align: center;
     clear: both;
+  }
+}
+
+.profile-photo {
+  margin-bottom: 1rem;
+  img {
+    display: inline-block;
+    width: 160px;
+    max-width: 40%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  }
+  @include breakpoint(break-1) {
+    img {
+      width: 220px;
+      max-width: 100%;
+    }
   }
 }
 
