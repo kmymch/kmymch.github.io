@@ -7,7 +7,7 @@ excerpt: "PhD student researching robotics, AI, and machine learning at Keio Uni
 ---
 
 <figure class="figure figure--center profile-photo">
-  <img src="{{ '/assets/yukitanaka.jpg' | relative_url }}" alt="Yuki Tanaka">
+  <img src="{{ '/assets/yukitanaka2.jpg' | relative_url }}" alt="Yuki Tanaka">
 </figure>
 
 I am a PhD student in the laboratory of Professor Seiichiro Katsura at Keio University. 
