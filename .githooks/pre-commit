@@ -1,0 +1,22 @@
+#!/bin/sh
+# Enable once per clone: git config core.hooksPath .githooks
+#
+# 1. Shrinks staged images under assets/ and strips their EXIF (tools/optimize_images.py).
+# 2. Regenerates _data/publications.json when _bibliography/ changes (tools/bib2json.py).
+set -e
+
+if ! command -v uv >/dev/null 2>&1; then
+  echo "pre-commit: uv is not installed (https://docs.astral.sh/uv/)" >&2
+  exit 1
+fi
+
+images=$(git diff --cached --name-only --diff-filter=ACMR | grep -iE '^assets/.*\.(jpe?g|png)$' || true)
+if [ -n "$images" ]; then
+  echo "$images" | tr '\n' '\0' | xargs -0 uv run --quiet tools/optimize_images.py
+  echo "$images" | tr '\n' '\0' | xargs -0 git add --
+fi
+
+if git diff --cached --name-only | grep -q '^_bibliography/'; then
+  uv run --quiet tools/bib2json.py
+  git add _data/publications.json
+fi

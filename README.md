@@ -2,13 +2,14 @@
 
 このファイルには、Jekyllブログ記事を更新・メンテナンスするための標準的な作業手順が記載されています。記事の追加、ローカルサーバでのチェック、git更新に関する手順を確認できます。
 
-元のテーマドキュメントは [README-original.md](README-original.md) を参照してください。
+テーマは [Alembic](https://github.com/daviddarnes/alembic)（MIT License）をベースにしています。元のドキュメントはリンク先を参照してください。
 
 ## 目次
 - [初期セットアップ](#初期セットアップ)
 - [新しい記事を追加する](#新しい記事を追加する)
 - [ローカルサーバでチェックする](#ローカルサーバでチェックする)
 - [記事の編集](#記事の編集)
+- [業績を更新する](#業績を更新する)
 - [Gitで更新を保存する](#gitで更新を保存する)
 - [よくある質問](#よくある質問)
 
@@ -24,6 +25,13 @@ bundle install
 ```bash
 bundle list
 ```
+
+### 3. pre-commit フックを有効にする（clone ごとに1回）
+```bash
+git config core.hooksPath .githooks
+```
+コミット時に画像の縮小・EXIF 削除と、業績データの再生成が自動で行われます。
+スクリプトの実行に [uv](https://docs.astral.sh/uv/) が必要です。
 
 ## 新しい記事を追加する
 
@@ -128,6 +136,8 @@ Jekyllサーバが起動している場合、自動的にサイトが再生成�
 
 ### 3. 画像の追加
 
+コミット時に pre-commit フックが長辺 1600px への縮小と EXIF（GPS 位置情報を含む）の削除を自動で行うので、元の写真をそのまま置いて構いません。写真は PNG ではなく JPG で置いてください。
+
 画像は `assets/images/` ディレクトリに配置し、記事内で以下のように参照します：
 
 ```markdown
@@ -136,6 +146,15 @@ Jekyllサーバが起動している場合、自動的にサイトが再生成�
 または include を使ってキャプション付きで表示:
 {% include figure.html image="/assets/images/image-name.jpg" caption="画像の説明" %}
 ```
+
+## 業績を更新する
+
+業績ページ（`/publications/`）は `_bibliography/publications.bib` から生成されます。`publications.md` は直接編集しません。
+
+1. `_bibliography/publications.bib` にエントリを追加・修正する
+   - `category = {journal}` / `{international}` / `{domestic}` で掲載セクションを指定（必須）
+   - 表彰は `award = {優秀論文発表賞受賞}`、`award_url = {...}` を追加すると、論文の下と Awards セクションに表示されます
+2. `uv run tools/bib2json.py` で `_data/publications.json` を再生成（コミット時にフックでも自動実行）
 
 ## Gitで更新を保存する
 
