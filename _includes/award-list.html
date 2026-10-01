@@ -1,0 +1,10 @@
+{%- comment -%}
+  Lists the awards attached to publications (the `award` field in _bibliography/publications.bib), newest first.
+  Usage: {% include award-list.html %}
+{%- endcomment -%}
+{%- assign awarded = site.data.publications | where_exp: "p", "p.award" | reverse -%}
+<ul class="award-list">
+{%- for p in awarded %}
+  <li><strong>{% if p.award_url %}<a href="{{ p.award_url }}">{{ p.award }}</a>{% else %}{{ p.award }}{% endif %}</strong>, {{ p.venue }}, {{ p.year }}.<br>&quot;{{ p.title }}&quot;</li>
+{%- endfor %}
+</ul>

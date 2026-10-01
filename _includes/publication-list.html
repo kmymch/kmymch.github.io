@@ -1,0 +1,14 @@
+{%- comment -%}
+  Lists publications of one category from _data/publications.json (generated from _bibliography/publications.bib).
+  Usage: {% include publication-list.html category="journal" %}
+{%- endcomment -%}
+{%- assign pubs = site.data.publications | where: "category", include.category -%}
+<ol class="publication-list">
+{%- for p in pubs %}
+  <li>{{ p.citation }}
+    {%- if p.doi %}<br>DOI: <a href="https://doi.org/{{ p.doi }}">{{ p.doi }}</a>{% endif %}
+    {%- if p.url %}<br><a href="{{ p.url }}">{{ p.url_label | default: "Link" }}</a>{% endif %}
+    {%- if p.award %}<br><strong>🏆 {% if p.award_url %}<a href="{{ p.award_url }}">{{ p.award }}</a>{% else %}{{ p.award }}{% endif %}</strong>{% endif %}
+  </li>
+{%- endfor %}
+</ol>
